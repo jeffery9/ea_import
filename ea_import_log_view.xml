@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="ea_import_log_tree">
+            <field name="name">ea_import.log.tree</field>
+            <field name="model">ea_import.log</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Import Log">
+                    <field name="import_time"/>
+                    <field name="result_ids"/>
+                    <field name="chain_id"/>                                        
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ea_import_log_form">
+            <field name="name">ea_import.log.form</field>
+            <field name="model">ea_import.log</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Import Log" col="2">
+                    <field name="import_time" readonly="1"/>
+                    <field name="chain_id" readonly="1"/> 
+                    <notebook>
+                        <page string="Log Notes">
+                            <field name="log_line" nolabel="1" readonly="1"/>
+                        </page>
+                        <page string="Import record results">
+                            <field name="result_ids" nolabel="1" readonly="1"/>
+                        </page>
+                    </notebook>                        
+                    
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ea_import_log_line_tree">
+            <field name="name">ea_import.log.line.tree</field>
+            <field name="model">ea_import.log.line</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Log Line">
+                    <field name="name"/>                
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ea_import_log_line_form">
+            <field name="name">ea_import.log.line.form</field>
+            <field name="model">ea_import.log.line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Log Line" col="2">
+                    <field name="name" readonly="1"/>
+                </form>
+            </field>
+        </record>        
+        
+    </data>
+</openerp>

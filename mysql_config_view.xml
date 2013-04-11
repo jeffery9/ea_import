@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="view_mysql_config_form" model="ir.ui.view">
+            <field name="name">mysql_config.form</field>
+            <field name="model">mysql.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Mysql Configuration" col='6'>
+                    <group colspan="6" col="6">
+                        <field name="host"/>
+                        <field name="port"/>
+                        <field name="db"/>
+                    </group>
+                    <group colspan="6">
+                        <field name="username"/>
+                        <field name="passwd"/>
+                    </group>
+                    <field name="query" colspan="6"/>
+                    <button name="test_connection" type="object" string="Test Connection" icon='terp-camera_test' colspan="6"/>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

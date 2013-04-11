@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="ea_export_config_tree">
+            <field name="name">ea_export.config.tree</field>
+            <field name="model">ea_export.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Import config">
+                    <field name="name"/>
+                    <field name="header"/>
+                    <field name="query_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ea_export_config_form">
+            <field name="name">ea_export.config.tree</field>
+            <field name="model">ea_export.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Export config" col="8">
+                    <group colspan="8" col="8">
+                        <field name="name" colspan="2"/>
+                        <field name="filename" colspan="2"/>
+                        <field name="query_type" colspan="2"/>
+                        <field name="header" colspan="2"/>
+                        <field name="delimiter" colspan="2"/>    
+                        <field name="quotechar" colspan="2"/>
+                        <field name="charset" colspan="2"/>
+                        <separator string="Query" colspan="8"/>
+                        <field name="query" colspan="8"/>
+                        <separator string="Generate CSV" colspan="8"/>
+                        <button string="Save/Generate CSV" type="object" name="generate_csv" icon="terp-stock_effects-object-colorize" colspan="8"/>
+                        <separator string="Sidebar button" colspan="8"/>
+                        <field name="model_id"/>
+                        <field name="ir_act_report_id" attrs="{'invisible':[('ir_act_report_id','=',False)]}"/>
+                        <field name="ir_value_id" attrs="{'invisible':[('ir_act_report_id','=',False)]}"/>
+                        <button name="create_action" string="Add report" type="object" icon="gtk-execute"
+                            colspan="8" attrs="{'invisible':[('ir_act_report_id','!=',False)]}"/>
+                        <button name="unlink_action" string="Remove report" type="object" icon="gtk-delete"
+                            colspan="8" attrs="{'invisible':[('ir_act_report_id','=',False)]}" />
+                        
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="ea_export_config_filter">
+            <field name="name">ea_export.config.filter</field>
+            <field name="model">ea_export.config</field>
+            <field name="type">search</field>
+            <field name="arch" type="xml">
+                <search string="Export configs">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="ea_export_config_action">
+            <field name="name">Export config</field>
+            <field name="res_model">ea_export.config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="ea_export_config_tree"/>
+            <field name="search_view_id" ref="ea_export_config_filter"/>
+            <field name="target">current</field>
+        </record>        
+
+        <menuitem name="Export configs" id="ea_export_config_menu" parent="ea_import_menu" action="ea_export_config_action"/>
+    </data>
+</openerp>

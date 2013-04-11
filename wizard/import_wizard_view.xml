@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_import_wizard_form" model="ir.ui.view">
+            <field name="name">import_wizard.form</field>
+            <field name="model">import_wizard</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+            <form string="Import">
+                <field name="chain_id" readonly="1"/>
+                <field name="import_file" required="1"/>
+                <button string="Import" type="object" name="do_import" icon="gtk-apply" colspan="4"/>
+            </form>
+            </field>
+        </record>
+    </data>
+</openerp>
